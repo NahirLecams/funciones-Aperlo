@@ -1,4 +1,6 @@
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -40,12 +42,27 @@ public class Main {
         //9
 //        sumarNumeros();
         //10
-        promedio();
-
-
+//        promedio();
+        //11
+//        boolean numeroEncontrado = buscarNumero();
+//        System.out.println(numeroEncontrado);
+        //12
+//        int cantidad = contarOcurrencias();
+//        System.out.println("Se encontró " + cantidad + " veces");
+        //13
+//        imprimirArray();
+        //14
+//        int[] resultado = invertirArray();
+//
+//        for(int i = 0; i < resultado.length; i++)
+//        {
+//            System.out.print(resultado[i] + " ");
+//        }
+        //15
+        String estudiante = mejorEstudiante();
+        System.out.println("El mejor estudiante es: " + estudiante);
     }
     //1. Mostrar mensaje fijo
-//  Crear un método llamado mostrarSaludo() que imprima “Hola, mundo”.
     public static void saludar()
     {
         System.out.println("Hola Mundo");
@@ -63,9 +80,6 @@ public class Main {
     }
 
     //3. Área de un rectángulo
-//    Crear un método que reciba dos argumentos (base, altura) y devuelva el área del
-//    rectángulo.
-
     public static double calcularAreaRectangulo(double base, double altura)
     {
         double area = base * altura;
@@ -144,7 +158,6 @@ public class Main {
         }
         System.out.println("La suma de ese número es: " + resultado);
         return sumaDeNumeros;
-
     }
 
     //10. Promedio de un array
@@ -167,4 +180,105 @@ public class Main {
         System.out.println("El promedio total de las notas ingresadas es: " + sumaTotal/notas.length);
         return (double)sumaTotal;
     }
+
+    //11. Buscar valor en array
+    public static boolean buscarNumero()
+    {
+        //Crear un método que reciba un array de int y un número a buscar, y devuelva true si el número está presente.
+
+        int[] numeros = {10, 5, 2, 9, 15};
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Ingrese un número: ");
+        int numeroIngresado = teclado.nextInt();
+        for (int i = 0; i < numeros.length; i++)
+        {
+            System.out.println(numeroIngresado + " == " + numeros[i]);
+            if(numeroIngresado == numeros[i])
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+    //12. Contar ocurrencias
+    public static int contarOcurrencias()
+    {
+        String[] palabras = {"miau", "chau", "hola", "perro", "queso"};
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Ingrese una palabra: ");
+        String palabraBuscada = teclado.nextLine();
+
+        int contador = 0;
+
+        for(int i = 0; i < palabras.length; i++)
+        {
+            if(palabras[i].equals(palabraBuscada))
+            {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    //13. Imprimir array de forma formateada
+    public static void imprimirArray()
+    {
+        int[] numeros = {10, 5, 2, 9, 15};
+
+        System.out.print("[");
+
+        for(int i = 0; i < numeros.length; i++)
+        {
+            System.out.print(numeros[i]);
+
+            if(i < numeros.length - 1)
+            {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+
+    //14. Invertir array
+    public static int[] invertirArray()
+    {
+        int[] numeros = {10, 5, 2, 9, 15};
+
+        int[] invertido = new int[numeros.length];
+
+        int posicion = 0;
+
+        for(int i = numeros.length - 1; i >= 0; i--)
+        {
+            invertido[posicion] = numeros[i];
+            posicion++;
+        }
+        return invertido;
+    }
+
+    //15. Estudiante con mejor nota
+    public static String mejorEstudiante()
+    {
+        String[] nombres = {"Anastacia", "Bonifacio", "Patricia", "Aleksander"};
+        double[] notas = {7.5, 9.0, 8.0, 6.5};
+
+        double mejorNota = notas[0];
+        String mejorNombre = nombres[0];
+
+        for(int i = 1; i < notas.length; i++)
+        {
+            if(notas[i] > mejorNota)
+            {
+                mejorNota = notas[i];
+                mejorNombre = nombres[i];
+            }
+        }
+        return mejorNombre;
+    }
+
+
 }
