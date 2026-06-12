@@ -40,7 +40,8 @@ public class Main {
         //9
 //        sumarNumeros();
         //10
-        
+        promedio();
+
 
     }
     //1. Mostrar mensaje fijo
@@ -147,8 +148,23 @@ public class Main {
     }
 
     //10. Promedio de un array
-    public static void promedio(double[] promedioNumeros)
+    public static double promedio()
     {
+        Scanner teclado = new Scanner(System.in);
+        double sumaTotal = 0;
+        int cantidadNotas = 0;
+        System.out.println("Indique la cantidad de números que quiere calcular: ");
+        cantidadNotas = teclado.nextInt();
 
+        double[] notas = new double[cantidadNotas];
+        for(int i = 0; i < notas.length ; i++)
+        {
+            System.out.println("Ingrese una nota: ");
+            sumaTotal += notas[i] = teclado.nextDouble();
+
+        }
+
+        System.out.println("El promedio total de las notas ingresadas es: " + sumaTotal/notas.length);
+        return (double)sumaTotal;
     }
 }
