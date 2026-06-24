@@ -68,7 +68,7 @@ public class Main {
         System.out.println("Hola Mundo");
     }
 
-    //2. Saludo personalizado
+    //2. Saludo personalizad
     public static String pedirNombre()
     {
         Scanner pedirNombre = new Scanner(System.in);
